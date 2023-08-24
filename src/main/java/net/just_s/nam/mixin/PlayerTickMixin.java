@@ -3,6 +3,7 @@ package net.just_s.nam.mixin;
 import net.just_s.nam.NotAliveMod;
 import net.just_s.nam.util.Config;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
