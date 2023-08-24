@@ -27,7 +27,7 @@ public class PlayerTickMixin {
 		player.getWorld().calculateAmbientDarkness();
 		if (player.getWorld().isDay()) {
 			BlockPos blockPos = new BlockPos(player.getX(), player.getEyeY(), player.getZ());
-			boolean bl = player.isWet() || player.inPowderSnow || player.wasInPowderSnow;
+			boolean bl = player.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) || player.isWet() || player.inPowderSnow || player.wasInPowderSnow;
 			return !bl && player.getWorld().isSkyVisible(blockPos);
 		}
 		return false;
