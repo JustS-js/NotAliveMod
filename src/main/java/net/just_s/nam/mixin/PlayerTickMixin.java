@@ -3,6 +3,7 @@ package net.just_s.nam.mixin;
 import net.just_s.nam.NotAliveMod;
 import net.just_s.nam.util.Config;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -27,7 +28,7 @@ public class PlayerTickMixin {
 		player.getWorld().calculateAmbientDarkness();
 		if (player.getWorld().isDay()) {
 			BlockPos blockPos = new BlockPos(player.getX(), player.getEyeY(), player.getZ());
-			boolean bl = player.isWet() || player.inPowderSnow || player.wasInPowderSnow;
+			boolean bl = player.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) || player.isWet() || player.inPowderSnow || player.wasInPowderSnow;
 			return !bl && player.getWorld().isSkyVisible(blockPos);
 		}
 		return false;
